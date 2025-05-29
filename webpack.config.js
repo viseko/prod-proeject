@@ -3,7 +3,19 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', "index.js"),// Входная точка вашего приложения
+  entry: path.resolve(__dirname, 'src', "index.ts"),// Входная точка вашего приложения
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   output: {
     filename: 'bundle.js', // Имя выходного файла
     path: path.resolve(__dirname, 'build'), // Путь для сохранения выходного файла,
@@ -18,5 +30,5 @@ module.exports = {
     // * отслеживание прогресса
     new webpack.ProgressPlugin()
   ],
-  mode: 'development', // Режим разработки,
+  mode: 'production', // Режим разработки,
 };
