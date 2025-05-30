@@ -3,9 +3,10 @@ import webpack from "webpack";
 import buildPlugins from "./buildPlugins";
 import buildLoaders from "./buildLoaders";
 import buildResolvers from "./buildResolvers";
+import buildDevServer from "./buildDevServer";
 
 export default function(options: BuildOptions): webpack.Configuration {
-  const {paths, mode} = options;
+  const {paths, mode, isDev} = options;
 
   return {
     mode,
@@ -20,5 +21,7 @@ export default function(options: BuildOptions): webpack.Configuration {
       clean: true
     },
     plugins: buildPlugins(options),
+    devtool: isDev && "inline-source-map",
+    devServer: buildDevServer(options),
   }
 } 
