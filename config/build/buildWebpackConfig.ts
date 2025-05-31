@@ -16,7 +16,7 @@ export default function(options: BuildOptions): webpack.Configuration {
     },
     resolve: buildResolvers(),
     output: {
-      filename: "[name][hash].js",
+      filename: "[name].[hash:5].js",
       path: paths.build, 
       clean: true
     },

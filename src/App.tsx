@@ -4,17 +4,18 @@ import {
   Routes,
   Route
 } from "react-router";
-import MainPage from "./pages/MainPage";
-import AboutPage from "./pages/AboutPage";
+import MainPageAsync from "./pages/Mainpage/MainPage.async";
+import AboutPageAsync from "./pages/AboutPage/AboutPage.async";
+import { Suspense } from "react";
 
 const routes = [
   {
     path: "/",
-    Component: MainPage
+    Component: MainPageAsync
   },
   {
     path: "/about",
-    Component: AboutPage
+    Component: AboutPageAsync
   },
 ]
 
@@ -26,9 +27,17 @@ const App = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
         </nav>
-        <Routes>
-          {routes.map(route => <Route key={route.path} path={route.path} Component={route.Component}/>)}
-        </Routes>
+        <Suspense fallback={ <div>Загрузка...</div> }>
+          <Routes>
+            {
+            routes.map(route => 
+              <Route
+                key={route.path}
+                path={route.path}
+                Component={route.Component}
+              />)}
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   )
