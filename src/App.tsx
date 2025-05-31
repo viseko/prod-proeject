@@ -4,9 +4,14 @@ import {
   Routes,
   Route
 } from "react-router";
+import { Suspense } from "react";
+
+import useTheme from "./theme/useTheme";
+
 import MainPageAsync from "./pages/Mainpage/MainPage.async";
 import AboutPageAsync from "./pages/AboutPage/AboutPage.async";
-import { Suspense } from "react";
+
+import "./styles/index.scss";
 
 const routes = [
   {
@@ -17,15 +22,18 @@ const routes = [
     path: "/about",
     Component: AboutPageAsync
   },
-]
+];
 
 const App = () => {
+  const {theme, toggleTheme} = useTheme();
+  
   return (
-    <>
+    <div className={`app ${theme}`}>
       <BrowserRouter>
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
+          <button onClick={toggleTheme}>{theme}</button>
         </nav>
         <Suspense fallback={ <div>Загрузка...</div> }>
           <Routes>
@@ -39,7 +47,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 
