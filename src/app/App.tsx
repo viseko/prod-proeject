@@ -4,24 +4,24 @@ import {
   Routes,
   Route
 } from "react-router";
+
+
 import { Suspense } from "react";
-
-import useTheme from "./theme/useTheme";
-
-import MainPageAsync from "./pages/Mainpage/MainPage.async";
-import AboutPageAsync from "./pages/AboutPage/AboutPage.async";
+import { useTheme } from "./providers/ThemeProvider";
+import {MainPage} from "pages/Mainpage";
+import {AboutPage} from "pages/AboutPage";
+import classNames from "shared/lib/classNames";
 
 import "./styles/index.scss";
-import classNames from "./helpers/classNames";
 
 const routes = [
   {
     path: "/",
-    Component: MainPageAsync
+    Component: MainPage
   },
   {
     path: "/about",
-    Component: AboutPageAsync
+    Component: AboutPage
   },
 ];
 

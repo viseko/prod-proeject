@@ -14,7 +14,7 @@ export default function(options: BuildOptions): webpack.Configuration {
     module: {
       rules: buildLoaders(options),
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     output: {
       filename: "[name].[hash:5].js",
       path: paths.build, 
