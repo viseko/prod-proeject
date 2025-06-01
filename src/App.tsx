@@ -12,6 +12,7 @@ import MainPageAsync from "./pages/Mainpage/MainPage.async";
 import AboutPageAsync from "./pages/AboutPage/AboutPage.async";
 
 import "./styles/index.scss";
+import classNames from "./helpers/classNames";
 
 const routes = [
   {
@@ -26,9 +27,11 @@ const routes = [
 
 const App = () => {
   const {theme, toggleTheme} = useTheme();
+
+  const cn = classNames("app", theme);
   
   return (
-    <div className={`app ${theme}`}>
+    <div className={cn}>
       <BrowserRouter>
         <nav>
           <NavLink to="/">Home</NavLink>
