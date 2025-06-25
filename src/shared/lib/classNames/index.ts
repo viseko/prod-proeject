@@ -6,7 +6,7 @@ type ClassnamesType = string | Additional | Mods;
 export default function classNames(...args: ClassnamesType[]): string {
   const list:string[] = [];
 
-  args.forEach(arg => {
+  args.filter(Boolean).forEach(arg => {
     if (typeof arg === "string") {
       list.push(arg);
     }

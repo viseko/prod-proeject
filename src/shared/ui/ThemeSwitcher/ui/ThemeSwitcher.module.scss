@@ -1,0 +1,14 @@
+.ThemeSwitcher {
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  background-color: transparent;
+  border: 0;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    border: 0;
+    fill: var(--bg-color);
+  }
+}

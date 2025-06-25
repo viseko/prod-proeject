@@ -1,0 +1,8 @@
+.NavLink {
+  font-size: 20px;
+
+  &.active {
+    text-decoration: none;
+    pointer-events: none;
+  }
+}

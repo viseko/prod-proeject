@@ -9,10 +9,10 @@ interface {{pascalCase}}Props {
 }
 
 const {{pascalCase}}:FC<{{pascalCase}}Props> = ({
-  clasName,
+  className,
 }) => {
   const cls = classNames(
-    clasName,
+    className,
     styles.{{pascalCase}}
   );
 

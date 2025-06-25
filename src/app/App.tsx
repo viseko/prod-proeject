@@ -1,29 +1,25 @@
 import {
   BrowserRouter,
-  NavLink,
 } from "react-router";
-
 
 import { useTheme } from "./providers/ThemeProvider";
 import classNames from "shared/lib/classNames";
+import {AppRouter} from "./providers/router";
+import { NavBar } from "widgets/NavBar";
 
 import "./styles/index.scss";
-import {AppRouter} from "./providers/router";
 
 const App = () => {
-  const {theme, toggleTheme} = useTheme();
-
+  const {theme} = useTheme();
   const cn = classNames("app", theme);
   
   return (
     <BrowserRouter>
       <div className={cn}>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <button onClick={toggleTheme}>{theme}</button>
-        </nav>
-        <AppRouter />
+        <NavBar />
+        <div className="inner">
+          <AppRouter />
+        </div>
       </div>
     </BrowserRouter>
   )

@@ -1,0 +1,18 @@
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24spx;
+  width: 100%;
+  padding: 16px;
+  user-select: none;
+
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
