@@ -24,7 +24,6 @@ const NavBar:FC<NavBarProps> = ({className}) => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
       </div>
-      <ThemeSwitcher />
     </nav> 
   );
 };

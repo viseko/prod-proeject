@@ -8,6 +8,7 @@ import {AppRouter} from "./providers/router";
 import { NavBar } from "widgets/NavBar";
 
 import "./styles/index.scss";
+import { Sidebar } from "widgets/Sidebar";
 
 const App = () => {
   const {theme} = useTheme();
@@ -17,7 +18,8 @@ const App = () => {
     <BrowserRouter>
       <div className={cn}>
         <NavBar />
-        <div className="inner">
+        <div className="content-page">
+          <Sidebar />
           <AppRouter />
         </div>
       </div>
