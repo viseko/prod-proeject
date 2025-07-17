@@ -3,6 +3,7 @@ import classNames from "shared/lib/classNames";
 
 import styles from "./Sidebar.module.scss";
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
+import { LanguageSwitcher } from "shared/ui/LanguageSwitcher";
 
 interface SidebarProps {
   className?: string;
@@ -36,6 +37,7 @@ const Sidebar:FC<SidebarProps> = ({
 
       <div className={styles.switchers}>
         <ThemeSwitcher />
+        <LanguageSwitcher />
       </div>
     </div>
   );
